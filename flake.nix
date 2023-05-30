@@ -10,15 +10,17 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    nixgl.url = "github:guibou/nixGL";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
+  outputs = { nixpkgs, home-manager, hyprland, nixgl, ... }:
+    {
       homeConfigurations."jackson" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config = { allowUnfree = true; };
+          overlays = [ nixgl.overlay ];
+        };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.

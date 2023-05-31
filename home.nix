@@ -3,7 +3,7 @@
   home.homeDirectory = "/home/jackson";
   home.stateVersion = "22.11"; # no need to change it
 
-  imports = [ "/home/jackson/.nixdotfiles/hypr" ];
+  imports = [ "/home/jackson/.nixdotfiles/dotfiles" ];
 
   home.packages = with pkgs; [
     nixgl.auto.nixGLDefault

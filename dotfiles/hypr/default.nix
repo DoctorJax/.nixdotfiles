@@ -1,14 +1,26 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+  nixGLWrap = pkg: pkgs.runCommand "${lib.getName pkg}-nixgl-wrapper" {} ''
+    mkdir $out
+    ln -s ${pkg}/* $out
+    rm $out/bin
+    mkdir $out/bin
+    for bin in ${pkg}/bin/*; do
+     wrapped_bin=$out/bin/$(basename $bin)
+     echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \"\$@\"" > $wrapped_bin
+     chmod +x $wrapped_bin
+    done
+  '';
+in
 {
   home.packages = with pkgs; [
     jaq
     xorg.xprop
+    config.wayland.windowManager.hyprland.package
   ];
 
   home.file = {
     ".config/hypr/autostart.sh".source = ./autostart.sh;
-    ".config/hypr/portal-wlr.sh".source = ./portal-wlr.sh;
     ".config/hypr/hyprsome".source = ./hyprsome;
   };
 
@@ -57,7 +69,6 @@
     # Autostart
     # -------------------------
     exec=$HOME/.config/hypr/autostart.sh
-    exec=$HOME/.config/hypr/portal-wlr.sh
 
     # -------------------------
     # Hyprland Config

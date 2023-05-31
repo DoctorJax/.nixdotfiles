@@ -179,9 +179,6 @@
     bind=SUPERCONTROL,Tab,togglegroup,
     bind=SUPER,Tab,changegroupactive,
 
-    bind=SUPERSHIFT,R,hyprload,reload
-    bind=SUPERSHIFT,U,hyprload,update
-
     bind=ALT,grave,exec,/home/jackson/.scripts/minimize.sh -q
 
     # launchers

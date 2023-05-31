@@ -9,17 +9,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils.url = "github:numtide/flake-utils";
+
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
-    nixgl.url = "github:guibou/nixGL";
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, nixgl, ... }:
+  outputs = { nixpkgs, home-manager, hyprland, nixgl, hyprland-contrib, ... }:
     {
       homeConfigurations."jackson" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
-          overlays = [ nixgl.overlay ];
+          overlays = [
+            nixgl.overlay
+            hyprland-contrib.overlays.default
+          ];
         };
 
         # Specify your home configuration modules here, for example,

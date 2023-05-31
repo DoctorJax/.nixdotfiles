@@ -9,6 +9,7 @@
   home.file = {
     ".config/hypr/autostart.sh".source = ./autostart.sh;
     ".config/hypr/portal-wlr.sh".source = ./portal-wlr.sh;
+    ".config/hypr/hyprsome".source = ./hyprsome;
   };
 
   wayland.windowManager.hyprland.extraConfig = ''
@@ -16,9 +17,28 @@
     # Monitors
     # -------------------------
     monitor=HDMI-A-1,2560x1080@75,1920x0,1
-    monitor=DP-3,1920x1080@75,0x0,1
-    workspace=DP-3,1
-    workspace=HDMI-A-1,11
+    monitor=DP-2,1920x1080@75,0x0,1
+
+    workspace=1, monitor:DP-2, default:true
+    workspace=2, monitor:DP-2
+    workspace=3, monitor:DP-2
+    workspace=4, monitor:DP-2
+    workspace=5, monitor:DP-2
+    workspace=6, monitor:DP-2
+    workspace=7, monitor:DP-2
+    workspace=8, monitor:DP-2
+    workspace=9, monitor:DP-2
+    workspace=10, monitor:DP-2
+    workspace=11, monitor:HDMI-A-1, default:true
+    workspace=12, monitor:HDMI-A-1
+    workspace=13, monitor:HDMI-A-1
+    workspace=14, monitor:HDMI-A-1
+    workspace=15, monitor:HDMI-A-1
+    workspace=16, monitor:HDMI-A-1
+    workspace=17, monitor:HDMI-A-1
+    workspace=18, monitor:HDMI-A-1
+    workspace=19, monitor:HDMI-A-1
+    workspace=20, monitor:HDMI-A-1
 
     # -------------------------
     # Environment Variables
@@ -197,27 +217,27 @@
     bind=SUPER,grave,exec,/home/jackson/.scripts/wallpapers.sh -i
 
     # Workspaces for both monitors with split-monitor-workspaces plugin
-    bind=SUPER,1,split-workspace,1
-    bind=SUPER,2,split-workspace,2
-    bind=SUPER,3,split-workspace,3
-    bind=SUPER,4,split-workspace,4
-    bind=SUPER,5,split-workspace,5
-    bind=SUPER,6,split-workspace,6
-    bind=SUPER,7,split-workspace,7
-    bind=SUPER,8,split-workspace,8
-    bind=SUPER,9,split-workspace,9
-    bind=SUPER,0,split-workspace,10
+    bind=SUPER,1,exec,$HOME/.config/hypr/hyprsome workspace 1
+    bind=SUPER,2,exec,$HOME/.config/hypr/hyprsome workspace 2
+    bind=SUPER,3,exec,$HOME/.config/hypr/hyprsome workspace 3
+    bind=SUPER,4,exec,$HOME/.config/hypr/hyprsome workspace 4
+    bind=SUPER,5,exec,$HOME/.config/hypr/hyprsome workspace 5
+    bind=SUPER,6,exec,$HOME/.config/hypr/hyprsome workspace 6
+    bind=SUPER,7,exec,$HOME/.config/hypr/hyprsome workspace 7
+    bind=SUPER,8,exec,$HOME/.config/hypr/hyprsome workspace 8
+    bind=SUPER,9,exec,$HOME/.config/hypr/hyprsome workspace 9
+    bind=SUPER,0,exec,$HOME/.config/hypr/hyprsome workspace 10
 
-    bind=SUPERSHIFT,1,split-movetoworkspacesilent,1
-    bind=SUPERSHIFT,2,split-movetoworkspacesilent,2
-    bind=SUPERSHIFT,3,split-movetoworkspacesilent,3
-    bind=SUPERSHIFT,4,split-movetoworkspacesilent,4
-    bind=SUPERSHIFT,5,split-movetoworkspacesilent,5
-    bind=SUPERSHIFT,6,split-movetoworkspacesilent,6
-    bind=SUPERSHIFT,7,split-movetoworkspacesilent,7
-    bind=SUPERSHIFT,8,split-movetoworkspacesilent,8
-    bind=SUPERSHIFT,9,split-movetoworkspacesilent,9
-    bind=SUPERSHIFT,0,split-movetoworkspacesilent,10
+    bind=SUPERSHIFT,1,exec,$HOME/.config/hypr/hyprsome move 1
+    bind=SUPERSHIFT,2,exec,$HOME/.config/hypr/hyprsome move 2
+    bind=SUPERSHIFT,3,exec,$HOME/.config/hypr/hyprsome move 3
+    bind=SUPERSHIFT,4,exec,$HOME/.config/hypr/hyprsome move 4
+    bind=SUPERSHIFT,5,exec,$HOME/.config/hypr/hyprsome move 5
+    bind=SUPERSHIFT,6,exec,$HOME/.config/hypr/hyprsome move 6
+    bind=SUPERSHIFT,7,exec,$HOME/.config/hypr/hyprsome move 7
+    bind=SUPERSHIFT,8,exec,$HOME/.config/hypr/hyprsome move 8
+    bind=SUPERSHIFT,9,exec,$HOME/.config/hypr/hyprsome move 9
+    bind=SUPERSHIFT,0,exec,$HOME/.config/hypr/hyprsome move 10
 
     # Specials
     bind=SUPERCONTROL,1,togglespecialworkspace,discord

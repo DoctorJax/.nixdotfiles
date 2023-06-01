@@ -5,6 +5,7 @@
     jaq
     xorg.xprop
     config.wayland.windowManager.hyprland.package
+    grimblast
   ];
 
   home.file = {

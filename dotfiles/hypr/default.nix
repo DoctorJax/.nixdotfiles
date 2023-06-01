@@ -1,17 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
-let
-  nixGLWrap = pkg: pkgs.runCommand "${lib.getName pkg}-nixgl-wrapper" {} ''
-    mkdir $out
-    ln -s ${pkg}/* $out
-    rm $out/bin
-    mkdir $out/bin
-    for bin in ${pkg}/bin/*; do
-     wrapped_bin=$out/bin/$(basename $bin)
-     echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \"\$@\"" > $wrapped_bin
-     chmod +x $wrapped_bin
-    done
-  '';
-in
+
 {
   home.packages = with pkgs; [
     jaq

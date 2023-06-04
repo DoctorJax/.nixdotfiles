@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     jaq
     xorg.xprop
-    config.wayland.windowManager.hyprland.package
     grimblast
   ];
 
@@ -12,6 +11,8 @@
     ".config/hypr/autostart.sh".source = ./autostart.sh;
     ".config/hypr/hyprsome".source = ./hyprsome;
   };
+
+  wayland.windowManager.hyprland.enable = true;
 
   wayland.windowManager.hyprland.extraConfig = ''
     # -------------------------

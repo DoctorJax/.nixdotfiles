@@ -41,7 +41,6 @@
         # the path to your home.nix.
         modules = [
           hyprland.homeManagerModules.default
-          {wayland.windowManager.hyprland.enable = true;}
           ./home.nix
         ];
 

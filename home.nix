@@ -21,7 +21,6 @@ in
 
   home.packages = with pkgs; [
     nixgl.auto.nixGLDefault
-    (nixGLWrap kitty)
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

@@ -3,5 +3,6 @@
 {
   imports = [
     ./hypr
+    ./kitty.nix
   ];
 }

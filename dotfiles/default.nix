@@ -4,5 +4,6 @@
   imports = [
     ./hypr
     ./kitty.nix
+    ./anyrun.nix
   ];
 }

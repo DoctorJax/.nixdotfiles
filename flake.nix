@@ -23,12 +23,17 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, nixgl, hyprland-contrib, ... }:
+  outputs = { self, ... }@inputs:
     {
-      homeConfigurations."jackson" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+      homeConfigurations."jackson" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
           overlays =
@@ -38,8 +43,8 @@
               };
             in
           [
-            nixgl.overlay
-            hyprland-contrib.overlays.default
+            inputs.nixgl.overlay
+            inputs.hyprland-contrib.overlays.default
             OpenASARdiscord
           ];
         };
@@ -47,10 +52,11 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          hyprland.homeManagerModules.default
+          inputs.hyprland.homeManagerModules.default
           ./home.nix
         ];
 
+        extraSpecialArgs = { inherit inputs; };
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };

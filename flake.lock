@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "anyrun": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685989367,
+        "narHash": "sha256-ZfYPtvrsXEG3/PZJVQfDBvQ5yeMKriDOOwmYLQJWHRM=",
+        "owner": "Kirottu",
+        "repo": "anyrun",
+        "rev": "8d595daf5203b62420b31e7a5fc8be25bb7f197b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kirottu",
+        "repo": "anyrun",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -157,6 +177,7 @@
     },
     "root": {
       "inputs": {
+        "anyrun": "anyrun",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

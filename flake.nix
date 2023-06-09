@@ -31,9 +31,16 @@
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
-          overlays = [
+          overlays =
+            let
+              OpenASARdiscord = self: super: {
+                discord-canary = super.discord-canary.override { withOpenASAR = true; };
+              };
+            in
+          [
             nixgl.overlay
             hyprland-contrib.overlays.default
+            OpenASARdiscord
           ];
         };
 

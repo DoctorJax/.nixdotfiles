@@ -197,8 +197,10 @@
     bind=SUPER,N,exec,swaync-client -t
 
     # audio
-    bind=,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
-    bind=,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
+    # bind=,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+    # bind=,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
+    bind=SUPERALTCONTROL,mouse_up,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bind=SUPERALTCONTROL,mouse_down,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     bind=,XF86AudioMute,exec,amixer -q set Master toggle
 
     bind=,XF86AudioNext,exec,playerctl next

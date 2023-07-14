@@ -20,7 +20,7 @@ in
   imports = [ "/home/jackson/.nixdotfiles/dotfiles" ];
 
   home.packages = with pkgs; [
-    nixgl.auto.nixGLDefault
+    nixgl.nixGLIntel
     discord-canary
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

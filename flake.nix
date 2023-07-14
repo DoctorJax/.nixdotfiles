@@ -53,6 +53,7 @@
         # the path to your home.nix.
         modules = [
           inputs.hyprland.homeManagerModules.default
+          inputs.anyrun.homeManagerModules.default
           ./home.nix
         ];
 

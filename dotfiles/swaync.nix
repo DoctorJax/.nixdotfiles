@@ -10,7 +10,7 @@
           "$schema": "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json",
           "positionX": "right",
           "positionY": "top",
-          "layer": "top",
+          "layer": "overlay",
           "cssPriority": "application",
           "control-center-margin-top": 0,
           "control-center-margin-bottom": 0,

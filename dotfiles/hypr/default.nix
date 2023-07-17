@@ -134,7 +134,7 @@
     # Window Rules
     # -------------------------
     windowrule=workspace 1 silent,^(discord)$
-    windowrule=workspace special:signal silent,^(signal)$
+    windowrule=workspace special:signal silent,^(Signal)$
     windowrule=workspace special:mail silent,^(thunderbird)$
 
     windowrule=workspace 16 silent,^(Steam)$
